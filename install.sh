@@ -21,6 +21,14 @@ copy_files()
   \curl -sSL https://raw.githubusercontent.com/sleede/letsencrypt/master/apps/letsencrypt/commands.sh > "$LETSENCRYPT_PATH/commands.sh"
 }
 
+configure()
+{
+  printf "\n\nLet's encrypt requires an email address to receive notifications about certificate expiration.\n"
+  read -rp "Email address >  " email </dev/tty
+  sed -i.bak "s/EMAIL_REPLACE/$email/g" "$LETSENCRYPT_PATH/etc/config/webroot.ini"
+  rm "$LETSENCRYPT_PATH/etc/config/webroot.ini.bak"
+}
+
 install_commands()
 {
   systemctl daemon-reload
@@ -30,6 +38,7 @@ install_commands()
 setup()
 {
   copy_files
+  configure
   install_commands
 }
 

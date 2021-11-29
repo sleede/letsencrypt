@@ -33,6 +33,7 @@ install_commands()
 {
   systemctl daemon-reload
   echo "[[ -s \"$LETSENCRYPT_PATH/commands.sh\" ]] && source \"$LETSENCRYPT_PATH/commands.sh\"" | tee -a "$HOME/.bashrc"
+  source "$HOME/.bashrc"
 }
 
 setup()

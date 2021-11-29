@@ -1,10 +1,10 @@
 [Unit]
-Description=letsencrypt generate a new certificate
+Description=letsencrypt generate a new certificate %I
 Requires=docker.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/docker run --rm --name certbot -v "/apps/letsencrypt/etc:/etc/letsencrypt" certbot/certbot:latest -c "/etc/letsencrypt/config/%i.ini" certonly
+ExecStart=/usr/bin/docker run --rm --name certbot_%i -v "/apps/letsencrypt/etc:/etc/letsencrypt" certbot/certbot:latest -c "/etc/letsencrypt/config/%i.ini" certonly
 
 [Install]
 WantedBy=letsencrypt.target

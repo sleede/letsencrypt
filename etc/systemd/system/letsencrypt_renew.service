@@ -5,5 +5,5 @@ Requires=docker.service
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/docker run --rm --name certbot_all -v "/apps/letsencrypt/etc:/etc/letsencrypt" certbot/certbot:latest renew
-ExecStartPost=-/usr/bin/docker-compose -f /apps/nginx/docker-compose.yml restart
+ExecStartPost=-/usr/local/bin/docker-compose -f /apps/nginx/docker-compose.yml restart
 

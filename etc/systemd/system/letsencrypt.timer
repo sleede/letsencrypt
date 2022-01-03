@@ -1,5 +1,5 @@
 [Unit]
-vi Description=letsencrypt oneshot timer  
+Description=letsencrypt oneshot timer  
 Requires=docker.service
 
 [Timer]

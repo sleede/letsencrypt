@@ -1,6 +1,9 @@
 # letsencrypt
 Install Let's encrypt on a server
 
+## Asumption
+This script assume you are using [nginx](https://nginx.org/) as a reverse proxy, which is installed in `/apps/nginx/` using [docker compose](https://docs.docker.com/compose/) with a [compose.yaml] file to manage your nginx instance.
+
 ## Usage
 
 - create a new certificate
